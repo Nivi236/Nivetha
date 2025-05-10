@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="abt_style.css">
+</head>
+
+<body>
+  <main>
+    <a href="index.html">
+      <button> <b>Home Page</b></button>
+    </a>
+  </main>
+
+  <header>
+    <h1>Happy 1st LOVE Anniversary D Chellam😍</h1>
+  </header>
+
+  <div id="heartContent"></div>
+
+  <script>
+    fetch('heart_lines.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('heartContent').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading heart_lines.html:', error);
+      });
+  </script>
+</body>
+
+      <footer>
+        <button class="accept"> <b> 1yr recap </b></button>
+      </footer>
+</html>
