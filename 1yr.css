@@ -1,0 +1,80 @@
+main{
+    text-align: left;
+}
+button.back{
+    padding: 4px 6px 4px 6px;
+    margin: 8.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ff1493;
+    cursor: pointer;
+}
+
+.gallery {
+  text-align: center;
+  padding: 30px;
+}
+
+.gallery h2 {
+  font-family: 'Playwrite DK Loopet', cursive;
+  color: #ff1493;
+  margin-bottom: 20px;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-grid img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.05);
+}
+
+
+
+/*heart-effects*/
+
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  background: url('https://cdn-icons-png.flaticon.com/512/2589/2589175.png') no-repeat center center / contain;
+  width: 20px;
+  height: 20px;
+  animation: float 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-10vh) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
