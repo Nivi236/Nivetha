@@ -23,14 +23,14 @@ main{
     padding: 10px;
 }
 button{
-    background-color: rgb(255, 118, 202);
+    background-color: rgb(249, 94, 190);
     font: 200;
     font-family:'Trebuchet MS', sans-serif ;
     border-radius: 5px;
     border: 5px;
     cursor: pointer;
     color: rgb(0, 0, 0);
-    padding: 4px 8px;
+    padding: 4px 8px 5px 8px;
 }
 button:hover{
     background-color: rgb(240, 54, 169);
@@ -49,6 +49,11 @@ button.accept
     border: none;
     border-radius: 6px;
     font-size: 16px;
+    text-decoration: none;
+}
+
+button.accept:hover{
+    background-color: rgb(255, 0, 179);
 }
 
 .heart-container {
