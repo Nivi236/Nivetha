@@ -8,11 +8,22 @@ button.back{
     border: none;
     background-color: #ff1493;
     cursor: pointer;
+    transition: 0.3s ease;
 }
+
+button.back:hover{
+  color: white;
+  padding: 6px 8px 6px 8px;
+
+}
+
+
+/*image adjustments*/
 
 .gallery {
   text-align: center;
   padding: 30px;
+  margin-top: -40px;
 }
 
 .gallery h2 {
@@ -28,9 +39,24 @@ button.back{
   gap: 20px;
 }
 
+.image-item {
+  display: flex;
+  flex-direction: column;  /* Makes the caption appear above the image */
+  align-items: center;     /* Centers the content (caption and image) */
+  max-width: 250px;        /* Optional: Control the maximum width */
+}
+
+.caption {
+  font-family: 'Playwrite DK Loopet', cursive;
+  font-size:medium ;
+  color: #ff1493;
+  font-size: 14px;
+  margin-bottom: 10px;  /* Space between caption and image */
+}
+
 .image-grid img {
-  width: 250px;
-  height: auto;
+  width: 250px;           /* Ensures image takes up full width of the item */
+  height: 300px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
@@ -39,6 +65,7 @@ button.back{
 .image-grid img:hover {
   transform: scale(1.05);
 }
+
 
 
 
