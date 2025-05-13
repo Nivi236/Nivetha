@@ -1,29 +1,50 @@
-main{
-    text-align: left;
-}
-button.back{
-    padding: 4px 6px 4px 6px;
-    margin: 8.5px;
-    border-radius: 6px;
-    border: none;
-    background-color: #ff1493;
-    cursor: pointer;
-    transition: 0.3s ease;
+/* Top buttons layout */
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-button.back:hover{
+/* Back button */
+button.back {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ff1493;
   color: white;
-  padding: 6px 8px 6px 8px;
-
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+button.back:hover {
+  background-color: #e0118b;
+  transform: scale(1.05);
+}
 
-/*image adjustments*/
+/* Play Music button */
+.play-music {
+  padding: 6px 12px;
+  border: none;
+  background-color: #ff1493;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.play-music:hover {
+  background-color: #e0118b;
+  transform: scale(1.05);
+}
+
+/* Gallery section */
 .gallery {
   text-align: center;
   padding: 30px;
-  margin-top: -40px;
+  margin-top: -20px;
 }
 
 .gallery h2 {
@@ -32,6 +53,7 @@ button.back:hover{
   margin-bottom: 20px;
 }
 
+/* Grid layout for images */
 .image-grid {
   display: flex;
   flex-wrap: wrap;
@@ -41,22 +63,22 @@ button.back:hover{
 
 .image-item {
   display: flex;
-  flex-direction: column;  /* Makes the caption appear above the image */
-  align-items: center;     /* Centers the content (caption and image) */
-  max-width: 250px;        /* Optional: Control the maximum width */
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
 }
 
 .caption {
   font-family: 'Playwrite DK Loopet', cursive;
-  font-size:medium ;
-  color: #ff1493;
   font-size: 14px;
-  margin-bottom: 10px;  /* Space between caption and image */
+  color: #ff1493;
+  margin-bottom: 10px;
 }
 
 .image-grid img {
-  width: 250px;           /* Ensures image takes up full width of the item */
+  width: 250px;
   height: 300px;
+  object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
@@ -66,11 +88,7 @@ button.back:hover{
   transform: scale(1.05);
 }
 
-
-
-
-/*heart-effects*/
-
+/* Floating hearts */
 .heart-container {
   position: fixed;
   top: 0;
@@ -104,4 +122,3 @@ button.back:hover{
     opacity: 0;
   }
 }
-

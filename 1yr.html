@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1yr recap</title>
-    <link rel="stylesheet" href="1yr.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1yr recap</title>
+  <link rel="stylesheet" href="1yr.css" />
 </head>
 <body>
-    <div class="heart-container"></div>
 
-  <main>
+  <!-- Background music element -->
+  <audio id="bg-music" loop>
+    <source src="music/your-song.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Heart effect container -->
+  <div class="heart-container"></div>
+
+  <!-- Button row -->
+  <main class="top-buttons">
     <a href="about.html">
-      <button class="back"> <b>Back</b></button>
+      <button class="back"><b>Back</b></button>
     </a>
+    <button class="play-music" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
   </main>
 
-
-
+  <!-- Memories Section -->
   <section class="gallery">
-  <h2>Our Memories Together 💖</h2>
-  <div class="image-grid">
-    <div class="image-item">
-      <p class="caption">Image 1</p>
-      <img src="images/image1.png" alt="Memory 1">
+    <h2>Our Memories Together 💖</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <p class="caption">Image 1</p>
+        <img src="images/image1.png" alt="Memory 1" />
+      </div>
+      <div class="image-item">
+        <p class="caption">Image 2</p>
+        <img src="images/image2.png" alt="Memory 2" />
+      </div>
+      <div class="image-item">
+        <p class="caption">Image 3</p>
+        <img src="images/image3.png" alt="Memory 3" />
+      </div>
+      <!-- Add more image-items if needed -->
     </div>
-    <div class="image-item">
-      <p class="caption">Image 2</p>
-      <img src="images/image2.png" alt="Memory 2">
-    </div>
-    <div class="image-item">
-      <p class="caption">Image 3</p>
-      <img src="images/image3.png" alt="Memory 3">
-    </div>
-    <!-- Add more as needed -->
-  </div>
-</section>
+  </section>
 
-<script>
-  const container = document.querySelector(".heart-container");
+  <script>
+    const container = document.querySelector(".heart-container");
 
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-    heart.style.width = heart.style.height = 15 + Math.random() * 20 + "px";
-    container.appendChild(heart);
-    setTimeout(() => heart.remove(), 10000);
-  }
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      heart.style.width = heart.style.height = 15 + Math.random() * 20 + "px";
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
 
-  setInterval(createHeart, 300);
-</script>
-
+    setInterval(createHeart, 300);
+  </script>
 </body>
 </html>

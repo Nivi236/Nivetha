@@ -32,28 +32,28 @@
         console.error('Error loading heart_lines.html:', error);
       });
   </script>
+
   <script>
-  const container = document.querySelector(".heart-container");
+    const container = document.querySelector(".heart-container");
 
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-    heart.style.width = heart.style.height = 15 + Math.random() * 20 + "px";
-    container.appendChild(heart);
-    setTimeout(() => heart.remove(), 10000);
-  }
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+      heart.style.width = heart.style.height = 15 + Math.random() * 20 + "px";
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
 
-  setInterval(createHeart, 300);
-</script>
+    setInterval(createHeart, 300);
+  </script>
+
+  <footer>
+    <button class="accept" onclick="location.href='1yr.html'">
+      <b>1yr recap</b>
+    </button>
+  </footer>
 
 </body>
-
-    <footer>
-      <button class="accept" onclick="location.href='1yr.html'">
-        <b>1yr recap</b>
-      </button>
-    </footer>
-
 </html>
