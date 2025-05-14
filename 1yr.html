@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>1yr recap</title>
+  <title>My Love</title>
   <link rel="stylesheet" href="1yr.css" />
 </head>
 <body>
 
-  <!-- Background music element -->
-  <audio id="bg-music" loop>
-    <source src="music/bg_song.mpeg" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+<audio id="bg-music" loop>
+  <source src="music/bg_song.mpeg" type="audio/mpeg" />
+</audio>
 
-  <!-- Heart effect container -->
-  <div class="heart-container"></div>
+<div class="heart-container"></div>
 
-  <!-- Button row -->
+<!-- Main content wrapper to blur -->
+<div class="content-wrapper" id="contentWrapper">
+
   <main class="top-buttons">
     <a href="about.html">
       <button class="back"><b>Back</b></button>
@@ -25,47 +24,99 @@
     <button class="play-music" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
   </main>
 
-  <!-- Memories Section -->
   <section class="gallery">
     <h2>Our Memories Together 💖</h2>
     <div class="image-grid">
-      <div class="image-item">
-        <img src="images/im1.jpeg" alt="Memory 1" />
-      </div>
-      <div class="image-item">
-        <img src="images/im2.jpeg" alt="Memory 2" />
-      </div>
-      <div class="image-item">
-        <img src="images/im3.jpeg" alt="Memory 3" />
-      </div>
-      <div class="image-item">
-        <img src="images/im4.jpeg" alt="Memory 4" />
-      </div>
-      <div class="image-item">
-        <img src="images/im5.jpeg" alt="Memory 5" />
-      </div>
-      <div class="image-item">
-        <img src="images/im6.jpeg" alt="Memory 6" />
-      </div>
-      <div class="image-item">
-        <img src="images/im7.jpeg" alt="Memory 7" />
-      </div>
+      <div class="image-item"><img src="images/im1.jpeg" alt="Memory 1" /></div>
+      <div class="image-item"><img src="images/im2.jpeg" alt="Memory 2" /></div>
+      <div class="image-item"><img src="images/im3.jpeg" alt="Memory 3" /></div>
+      <div class="image-item"><img src="images/im4.jpeg" alt="Memory 4" /></div>
+      <div class="image-item"><img src="images/im5.jpeg" alt="Memory 5" /></div>
+      <div class="image-item"><img src="images/im6.jpeg" alt="Memory 6" /></div>
+      <div class="image-item"><img src="images/im7.jpeg" alt="Memory 7" /></div>
+    </div>
   </section>
 
-  <script>
-    const container = document.querySelector(".heart-container");
+  <!-- Trigger Button -->
+  <button class="qus" onclick="startQuestions()">Click Me 💘</button>
+</div>
 
-    function createHeart() {
+<!-- Popup Modal -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <p id="question-text"></p>
+    <div id="options-container"></div>
+  </div>
+</div>
+
+<!-- Final Text -->
+<div class="final-message" id="finalText">Now u r mine</div>
+
+<!-- Heart explosion container -->
+<div id="heart-explosion"></div>
+
+<script>
+  const questions = [
+    { text: "Do u love me 🤌🌹", options: ["No"] },
+    { text: "Enna ni love panaliya 🥺", options: ["Ama illa da"] },
+    { text: "Enna kalayanam pana matala appo😏", options: ["pana mate"] },
+    { text: "Ennaku samachum poda mata appo 😋🥺", options: ["Yesss"] },
+    { text: "Seri appo na vera ponna uh pathukata? 🫣🫣 (yes solri)", options: ["No","OK pathuko"] },
+    { text: "Enna vitutu po nu sollanum. poga mudiyathu, ennaku ni tha unnaku naan tha. unnaku option la illa 😁", options: ["Purinjuthu"] },
+    { text: "Do u love me (formality qus thaan d. no opts just say yes 😁😁)", options: ["Yes","💯Yes"] }
+  ];
+
+  let currentQuestion = 0;
+
+  function startQuestions() {
+    document.getElementById('popup').style.display = 'flex';
+    document.getElementById('contentWrapper').classList.add("blurred");
+    showQuestion();
+  }
+
+  function showQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById('question-text').innerText = q.text;
+
+    const container = document.getElementById('options-container');
+    container.innerHTML = "";
+
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.textContent = option;
+      btn.onclick = () => nextQuestion();
+      container.appendChild(btn);
+    });
+  }
+
+  function nextQuestion() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('contentWrapper').classList.remove("blurred");
+      triggerFinalEffect();
+    }
+  }
+
+  function triggerFinalEffect() {
+    const explosion = document.getElementById("heart-explosion");
+
+    for (let i = 0; i < 100; i++) {
       const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-      heart.style.width = heart.style.height = 15 + Math.random() * 20 + "px";
-      container.appendChild(heart);
-      setTimeout(() => heart.remove(), 10000);
+      heart.className = "explode-heart";
+      heart.style.left = "50%";
+      heart.style.top = "50%";
+      heart.style.setProperty('--x', (Math.random() - 0.5) * 200 + 'px');
+      heart.style.setProperty('--y', (Math.random() - 0.5) * 200 + 'px');
+      explosion.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
     }
 
-    setInterval(createHeart, 300);
-  </script>
+    document.getElementById('finalText').style.display = 'block';
+  }
+</script>
+
 </body>
 </html>
