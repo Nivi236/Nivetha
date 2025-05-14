@@ -1,3 +1,4 @@
+/* Body background adjustments */
 body {
     font-family: Impact;
     margin: 0;
@@ -5,12 +6,21 @@ body {
     color: rgb(0, 0, 0);
     background-color: rgb(255, 0, 234);
     background-image: url('images/hands.jpeg');
-    background-size: cover;
+    background-size: cover; /* Ensures the image covers the screen */
     background-position: center;
     background-repeat: no-repeat;
     color: #000;
 }
 
+/* Adjust for mobile screen sizes */
+@media (max-width: 600px) {
+    body {
+        background-size: contain; /* Adjust to fit the image properly on small screens */
+        background-attachment: scroll; /* Ensure the background doesn't get fixed on mobile */
+    }
+}
+
+/* Header adjustments */
 header {
     font-family: 'Playwrite DK Loopet', cursive;
     font-size: 25px;
@@ -20,12 +30,13 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* return button adjustments */
+/* Main section styling */
 main {
     text-align: left;
     padding: 10px;
 }
 
+/* Button styling */
 button {
     background-color: rgb(249, 94, 190);
     font: 200;
@@ -43,7 +54,7 @@ button:hover {
     color: #ffffff;
 }
 
-/* button2 adjustment */
+/* Accept button styling */
 button.accept {
   background-color: #fa4ea4;
   color: rgb(11, 11, 11);
@@ -66,6 +77,7 @@ button.accept:hover {
   color: white;
 }
 
+/* Heart animations */
 .heart-container {
   position: fixed;
   top: 0;
